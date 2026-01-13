@@ -1,7 +1,10 @@
 
+import {NativeModules} from "react-native";
 import { ParamListBase } from "@react-navigation/native";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { View, Text, Pressable, StyleSheet } from "react-native";
+
+const {HelloModule} = NativeModules;
 
 
 interface HomeScreenProps {
@@ -14,10 +17,16 @@ export default function HomeScreen({navigation}: HomeScreenProps) {
         navigation.navigate("Details");
     }
 
+    const callNative = () => {
+        HelloModule.sayHello((message: string) => {
+            console.log()
+        });
+    };
+
     return (
         <View style={styles.container}>
             <Text style={styles.text}>Главная страница</Text>
-            <Pressable style={styles.button} onPress={toggleDetails}>
+            <Pressable style={styles.button} onPress={callNative}>
                 <Text style={styles.buttonText}>Перейти на страницу деталей</Text>
             </Pressable>
         </View>

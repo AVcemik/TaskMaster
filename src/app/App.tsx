@@ -1,10 +1,11 @@
-// import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
+import { Navigation } from './Navigation';
 
-// export default function App() {
+export default function App() {
 
-//     return (
-//         <NavigationContainer>
-//             <RootNavigator />
-//         </NavigationContainer>
-//     );
-// }
+    return (
+        <NavigationContainer>
+            < Navigation />
+        </NavigationContainer>
+    );
+}
